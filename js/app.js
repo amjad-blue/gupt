@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', init)
 
-if ('scrollRestoration' in history) {
-	history.scrollRestoration = 'manual';
-}
-
 function init() {
 	handleHomePage()
 }
@@ -235,7 +231,6 @@ function handleStatistics() {
 	});
 }
 
-
 function handleVideo() {
 	const videoWrapper = document.querySelector(".video-wrapper")
 	const videoElement = videoWrapper.querySelector("video");
@@ -320,97 +315,96 @@ function handleHomePageAnimations() {
 		.to(".section-app__side", { opacity: 1, duration: 1, ease: "sine.out" })
 		.to(".circle", { opacity: 1, duration: 0.6, ease: "sine.out" },"-=0.4")
 		.to(".phone", { y: "0%", opacity: 1, duration: 1, ease: "back.out(1.3)" },)
-		.to(".logo", { opacity: 1, duration: 0.4, ease: "sine.out" }, "+=0.2")
-		.to(".login", { opacity: 1, duration: 0.4, ease: "sine.out" }, "+=0.2")
+		.to(".logo", { opacity: 1, duration: 0.7, ease: "sine.out" }, "-=0.1")
+		.to(".login", { opacity: 1, duration: 0.7, ease: "sine.out" }, "-=0.1")
 
+}
+
+function handleThumbnailVideo() {
+
+
+	function setupThumbnails() {
+		document.querySelectorAll('.video-link').forEach(link => {
+			const videoTag = link.querySelector('video');
+			const iframe = link.querySelector('iframe');
+			let thumb;
+
+
+			if (videoTag) {
+				if (videoTag.getAttribute('poster')) {
+					thumb = videoTag.getAttribute('poster');
+
+				} else {
+					const canvas = document.createElement('canvas');
+					videoTag.addEventListener('loadeddata', () => {
+						canvas.width = videoTag.videoWidth;
+						canvas.height = videoTag.videoHeight;
+						canvas.getContext('2d').drawImage(videoTag, 0, 0);
+						thumb = canvas.toDataURL('image/png');
+						console.log({thumb})
+						insertThumbnail(link, thumb);
+					});
+					return;
+				}
+			}
+
+			// Case 2: YouTube iframe
+			if (!videoTag && link.dataset.video.includes("youtube")) {
+				const match = link.dataset.video.match(/youtube.*(?:\/|v=)([^"&?/\s]{11})/);
+				if (match && match[1]) {
+					const videoId = match[1];
+					thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+				}
+			}
+
+			// Insert the image
+			insertThumbnail(link, thumb);
+		});
+	}
+
+	function insertThumbnail(link, src) {
+		if (!src) return;
+		if (!link.querySelector('img')) {
+			const img = document.createElement('img');
+			img.alt = "Video thumbnail";
+			// link.appendChild(img);
+		}
+		// link.querySelector('img').src = src;
+	}
+
+// Run after DOM ready
+	setupThumbnails();
+
+
+	if (document.querySelector('.video-wrapper')) {
+		lightGallery(document.querySelector('.video-wrapper'), {
+			selector: 'a',
+			plugins: [lgVideo],
+			download: false,
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+		});
+	}
+
+	if (document.querySelector('.iframe-wrapper')) {
+		lightGallery(document.querySelector('.iframe-wrapper'), {
+			selector: 'a',
+			plugins: [lgVideo],
+			download: false,
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+		});
+	}
 }
 
 function handleHomePage() {
 	if (document.querySelector('.homepage')) {
-
-
-		function setupThumbnails() {
-			document.querySelectorAll('.video-link').forEach(link => {
-				const videoTag = link.querySelector('video');
-				const iframe = link.querySelector('iframe');
-				let thumb;
-
-
-				if (videoTag) {
-					if (videoTag.getAttribute('poster')) {
-						thumb = videoTag.getAttribute('poster');
-
-					} else {
-						const canvas = document.createElement('canvas');
-						videoTag.addEventListener('loadeddata', () => {
-							canvas.width = videoTag.videoWidth;
-							canvas.height = videoTag.videoHeight;
-							canvas.getContext('2d').drawImage(videoTag, 0, 0);
-							thumb = canvas.toDataURL('image/png');
-							console.log({thumb})
-							insertThumbnail(link, thumb);
-						});
-						return;
-					}
-				}
-
-				// Case 2: YouTube iframe
-				if (!videoTag && link.dataset.video.includes("youtube")) {
-					const match = link.dataset.video.match(/youtube.*(?:\/|v=)([^"&?/\s]{11})/);
-					if (match && match[1]) {
-						const videoId = match[1];
-						thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-					}
-				}
-
-				// Insert the image
-				insertThumbnail(link, thumb);
-			});
-		}
-
-		function insertThumbnail(link, src) {
-			if (!src) return;
-			if (!link.querySelector('img')) {
-				const img = document.createElement('img');
-				img.alt = "Video thumbnail";
-				// link.appendChild(img);
-			}
-			// link.querySelector('img').src = src;
-		}
-
-// Run after DOM ready
-		setupThumbnails();
-
-
-		if (document.querySelector('.video-wrapper')) {
-			lightGallery(document.querySelector('.video-wrapper'), {
-				selector: 'a',
-				plugins: [lgVideo],
-				download: false,
-				zoomFromOrigin: false,
-				allowMediaOverlap: true,
-			});
-		}
-		
-		if (document.querySelector('.iframe-wrapper')) {
-			lightGallery(document.querySelector('.iframe-wrapper'), {
-				selector: 'a',
-				plugins: [lgVideo],
-				download: false,
-				zoomFromOrigin: false,
-				allowMediaOverlap: true,
-			});
-		}
-		
-
 		handleHomePageAnimations()
 		handleHeroSlider();
 		handleActivitiesCards();
 		handleStatistics();
+		handleThumbnailVideo()
 		//handleVideo()
-
-
-
 	}
 }
 

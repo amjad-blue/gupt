@@ -126,14 +126,15 @@ button {transition: .4s}
 .header .dropdown-menu > li > a:hover { background-color: var(--primary-color); color: white; }
 .header .nav-item.nav-item-has-dropdown:hover .dropdown-menu { transform: scaleY(1); opacity: 1; pointer-events: all; }
 .header .dropdown-menu > li:not(:last-child) a:after { content: ""; background: linear-gradient(90deg, #ffffff00, #cdcdcd, #ffffff00 100%, white); position: absolute; left: 4px; right: 4px; bottom: 0; height: 1px; z-index: 3; }
-.search { width: 34px; aspect-ratio: 1; border-radius: 50%; background-color: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; }
-.switch-language { border: 2px solid var(--primary-color); border-radius: var(--radius-4); color: white;;background-color: var(--primary-color); font-weight: 500; font-size: var(--font-size-body-sm);     width: 34px;aspect-ratio: 1;display: flex;align-items: center;justify-content: center;}
-.switch-language .icon-world2 {font-size: 1.6rem;}
+.header .search { transition: .4s;width: 34px; aspect-ratio: 1; border-radius: 50%; background-color: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; }
+.header .search:hover, .header .switch-language:hover {background-color: hsl(152 100% 30% / 1)}
+.header .switch-language {transition: .4s; border-radius: var(--radius-4); color: white;;background-color: var(--primary-color); font-weight: 500; font-size: var(--font-size-body-sm);     width: 34px;aspect-ratio: 1;display: flex;align-items: center;justify-content: center;font-family: sans-serif;line-height: 1}
+.header .switch-language .icon-world2 {font-size: 1.6rem;}
 
-.social-links {display: flex;align-items: center;gap: var(--spacer-1);margin-inline-end: 30px;}
-.social-links__item a {--size: 34px;display: flex;align-items: center;justify-content: center;width: var(--size);aspect-ratio: 1;border: 2px solid var(--primary-color);border-radius: 50%;}
-.social-links__item a span {font-size: 1.4rem;}
-
+.social-links {display: flex;align-items: center;gap: var(--spacer-1);margin-inline-end: 12px;}
+.social-links__item a {--size: 34px;transition: .4s;display: flex;align-items: center;justify-content: center;width: var(--size);aspect-ratio: 1;border: 2px solid var(--primary-color);border-radius: 50%;}
+.social-links__item a span {font-size: 1.4rem;transition: .4s}
+.social-links__item a:hover {border-color: hsl(152 100% 30% / 1); }
 
 .news-section {padding-block: 0;background-color: #eeeeee;}
 .news-section .ticker-wrapper { overflow: hidden; direction: ltr; white-space: nowrap; user-select: none; }
@@ -164,12 +165,12 @@ button {transition: .4s}
 .sliders-info .slide > * + * { margin-top: var(--spacer-3); }
 .thumbs-wrapper { display: flex; gap: 20px; width: 60%; }
 .thumbs-wrapper .slide-thumb.active { width: 66.66%; filter: brightness(1); }
-.thumbs-wrapper .slide-thumb { width: 33.33%; transition: 1s cubic-bezier(0.18, 0.89, 0.46, 1.08); position: relative; border-radius: var(--radius-3); overflow: hidden; cursor: pointer; filter: brightness(0.7); transition-delay: .1s; }
-.slide-thumb.active {}
+.thumbs-wrapper .slide-thumb { width: 33.33%; transition: 1s cubic-bezier(0.18, 0.89, 0.46, 1.08); position: relative; border-radius: var(--radius-3); overflow: hidden; cursor: pointer; filter: brightness(0.55); transition-delay: .1s; }
+.thumbs-wrapper .slide-thumb:not(.active):hover { filter: brightness(1); }
 .slide-thumb .image-wrapper { position: relative; height: 100%; min-height: 500px; }
 .slide-thumb .slide-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .slide-thumb .slide-date { position: absolute; bottom: 0; left: 20px; display: flex; flex-direction: column; align-items: center; justify-content: end; background: linear-gradient(180deg, rgba(0, 104, 56, 0.39) 0%, #006838 100%); color: white; width: 94px; aspect-ratio: 1; padding: 15px; transition: 1.2s ease-in-out; top: 80%; }
-.thumbs-wrapper .slide-thumb.active .slide-date { top: 0%; }
+.thumbs-wrapper .slide-thumb.active .slide-date { top: 0; }
 
 
 
@@ -226,7 +227,7 @@ button {transition: .4s}
 .statistics-section .statistic-item:nth-child(1) {order: 1;}
 .statistics-section .statistic-item:nth-child(2) {order: 3;}
 .statistics-section .swiper-slide {padding: 40px 0;}
-
+:is(.swiper-button-prev, .swiper-button-next):is(:active) {box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;}
 
 
 .section-circle {}.section-apps {display: flex;align-items: center;justify-content: center;background-color: white}
