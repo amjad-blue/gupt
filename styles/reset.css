@@ -1,0 +1,37 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;vertical-align: baseline;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+ol, ul {list-style: none;padding-inline-start: 0;}
+a {text-decoration: none;color: inherit;display: inline-block;}
+img {display: block;max-width: 100%;}
+button {background-color: transparent;border: none;cursor: pointer;padding: 0;font-family: inherit}
+svg {display: block}
+*, :before,:after{box-sizing: border-box}
+:root {--font-ratio:62.5%}
+html {font-size: var(--font-ratio)}
+body {font-size: clamp(1.2rem,4vw,1.6rem);line-height: 1.4}
+.d-none {display: none !important;}
+input, textarea, button {font-family: inherit; font-size: inherit}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {display: none;}
+input[type="tel"] {text-align: end;}
+
+/*hide arrow in input number*/
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide arrows in Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {box-shadow: 0 0 0 1000px var(--extra-light-gray) inset !important;-webkit-text-fill-color: #000 !important;transition: background-color 5000s ease-in-out 0s;}
+.sr-only {position: absolute;top: 0;left: 0;opacity: 0;pointer-events: none;width: 1px;height: 1px;overflow: hidden;}
+textarea {max-width: 100%;resize: vertical}
+
