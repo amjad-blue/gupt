@@ -104,7 +104,7 @@ button {transition: .4s}
 .inner-page .section-title {color: var(--primary-color);margin-bottom: var(--spacer-1);--section-title-size: clamp(1.8rem,4vw,2rem);}
 
 
-.header { padding: 11px 0; z-index: 10; box-shadow: 0 4px 10px rgb(116 116 116 / 21%); background: rgb(250 250 250); position: sticky; top: 0; }
+.header { padding: 11px 0; z-index: 10; box-shadow: 0 3px 6px rgb(116 116 116 / 21%); background: rgb(250 250 250); position: sticky; top: 0; }
 .header > .app-wrapper { display: flex; align-items: center; gap: 30px; }
 .header .logo-wrapper { max-width: 100px; display: flex; }
 .header .header-inner { flex-grow: 1; }
