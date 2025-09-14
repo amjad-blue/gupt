@@ -261,7 +261,6 @@ button {transition: .4s}
   mask-image: radial-gradient(ellipse 334px 442px at top, #000 100%, transparent);
   position: relative;
 
-
   > * {
     grid-area: 1 / -1;
     align-self: end;
@@ -309,108 +308,6 @@ button {transition: .4s}
   transform: translate(-50%, -50%);
   width: 42%;
 }
-
-
-/*.feature {*/
-/*  display: flex;*/
-/*  align-items: start;*/
-/*  justify-content: center;*/
-/*  width: 400px;*/
-/*  height: 400px;*/
-/*  position: relative;*/
-/*}*/
-
-/*.circle {*/
-/*  position: absolute;*/
-/*  inset: 0;*/
-/*  background: rebeccapurple;*/
-/*  border-radius: 50%;*/
-/*  !* border: 20px solid red; *!*/
-/*}*/
-
-/*.phone-c {*/
-/*  display: grid;*/
-/*  justify-items: center;*/
-/*  transform: translateY(-42px);*/
-/*}*/
-
-/*img.phone {*/
-/*  !* position: absolute; *!*/
-/*  !* left: 50%; *!*/
-/*  transform: translateY(100%);*/
-/*  width: 220px;*/
-/*}*/
-
-/*.phone-c > * {*/
-/*  grid-area: -1 / 1;*/
-/*}*/
-
-/*.phone-c img.logo {*/
-/*  z-index: 2;*/
-/*  align-self: start;*/
-/*  transform: translateY(60px);*/
-/*  !* grid-row: 1 / 2; *!*/
-/*}*/
-
-/*img.login {*/
-/*  z-index: 1;*/
-/*  width: 80%;*/
-/*  align-self: center;*/
-/*  transform: translateY(20px);*/
-/*}*/
-
-/*.feature:after {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  inset: -29px;*/
-/*  border: 30px solid #ffffff;*/
-/*  border-radius: 50%;*/
-/*  border-top-color: transparent;*/
-/*}*/
-
-
-/*/another solutuon*/
-
-/*.feature {*/
-/*  width: 300px;*/
-/*  display: grid;*/
-/*// mask-image: radial-gradient(ellipse 79% 350px at top, #000 100%, transparent);*/
-/*  mask-image: radial-gradient(ellipse 100% 102% at top, #000 83%, transparent);*/
-
-/*  > * {*/
-/*    grid-area: 1 / -1;*/
-/*    align-self: end;*/
-/*  }*/
-
-/*  .circle {*/
-/*    aspect-ratio: 1;*/
-/*    width: 100%;*/
-/*    background-color: red;*/
-/*    border-radius: 50%;*/
-/*  }*/
-
-/*  .phone {*/
-/*    aspect-ratio: 9/16;*/
-/*    width: 200px;*/
-/*    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnwiVHXijqS0MWhD5lWRbWabisoSic5ORmuw&s");*/
-/*    justify-self: center;*/
-/*    border-radius: 20px;*/
-/*    transition: 0.3s ease-out;*/
-/*  }*/
-
-/*  &:hover {*/
-/*    .phone {*/
-/*      transform: translateY(15px);*/
-/*    }*/
-/*  }*/
-/*}*/
-
-/*body {*/
-/*  display: grid;*/
-/*  place-items: center;*/
-/*  min-height: 100vh;*/
-/*}*/
-
 
 
 
