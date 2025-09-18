@@ -320,47 +320,49 @@ function handleHomePageAnimations() {
 
 }
 
+
+function setupThumbnails() {
+	document.querySelectorAll('.video-link').forEach(link => {
+		const videoTag = link.querySelector('video');
+		const iframe = link.querySelector('iframe');
+		let thumb;
+
+
+		if (videoTag) {
+			if (videoTag.getAttribute('poster')) {
+				thumb = videoTag.getAttribute('poster');
+
+			} else {
+				const canvas = document.createElement('canvas');
+				videoTag.addEventListener('loadeddata', () => {
+					canvas.width = videoTag.videoWidth;
+					canvas.height = videoTag.videoHeight;
+					canvas.getContext('2d').drawImage(videoTag, 0, 0);
+					thumb = canvas.toDataURL('image/png');
+					console.log({thumb})
+					insertThumbnail(link, thumb);
+				});
+				return;
+			}
+		}
+
+		// Case 2: YouTube iframe
+		if (!videoTag && link.dataset.video.includes("youtube")) {
+			const match = link.dataset.video.match(/youtube.*(?:\/|v=)([^"&?/\s]{11})/);
+			if (match && match[1]) {
+				const videoId = match[1];
+				thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+			}
+		}
+
+		// Insert the image
+		insertThumbnail(link, thumb);
+	});
+}
+
 function handleThumbnailVideo() {
 
 
-	function setupThumbnails() {
-		document.querySelectorAll('.video-link').forEach(link => {
-			const videoTag = link.querySelector('video');
-			const iframe = link.querySelector('iframe');
-			let thumb;
-
-
-			if (videoTag) {
-				if (videoTag.getAttribute('poster')) {
-					thumb = videoTag.getAttribute('poster');
-
-				} else {
-					const canvas = document.createElement('canvas');
-					videoTag.addEventListener('loadeddata', () => {
-						canvas.width = videoTag.videoWidth;
-						canvas.height = videoTag.videoHeight;
-						canvas.getContext('2d').drawImage(videoTag, 0, 0);
-						thumb = canvas.toDataURL('image/png');
-						console.log({thumb})
-						insertThumbnail(link, thumb);
-					});
-					return;
-				}
-			}
-
-			// Case 2: YouTube iframe
-			if (!videoTag && link.dataset.video.includes("youtube")) {
-				const match = link.dataset.video.match(/youtube.*(?:\/|v=)([^"&?/\s]{11})/);
-				if (match && match[1]) {
-					const videoId = match[1];
-					thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-				}
-			}
-
-			// Insert the image
-			insertThumbnail(link, thumb);
-		});
-	}
 
 	function insertThumbnail(link, src) {
 		if (!src) return;
@@ -397,6 +399,40 @@ function handleThumbnailVideo() {
 	}
 }
 
+function handleStatisticsPage() {
+	const cards = document.querySelectorAll('.section-charts .cards-wrapper .card');
+	cards.forEach(card => {
+		const wrapper = card.querySelector('.canvas-wrapper');
+		const ctx = card.querySelector('canvas');
+
+
+		const labels = JSON.parse(wrapper.dataset.labels);
+		const values = JSON.parse(wrapper.dataset.values);
+		const colors = JSON.parse(wrapper.dataset.colors);
+
+		new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: labels,
+				datasets: [{
+					data: values,
+					backgroundColor: colors
+				}]
+			},
+			options: {
+				cutout: '70%',
+				plugins: {
+					legend: {
+						position: 'bottom'
+					}
+				}
+			}
+		});
+	})
+
+}
+
+
 function handleHomePage() {
 	if (document.querySelector('.homepage')) {
 		handleHomePageAnimations()
@@ -406,5 +442,63 @@ function handleHomePage() {
 		handleThumbnailVideo()
 		//handleVideo()
 	}
+
+	if (document.querySelector('.statistics-page')) {
+		handleStatisticsPage()
+	}
+
+	const gallery = document.querySelector(".section-gallery.photos");
+
+	lightGallery(gallery, {
+		selector: 'a',
+		animateThumb: true,
+		plugins: [lgVideo],
+		zoomFromOrigin: false,
+		allowMediaOverlap: true,
+		toggleThumb: true,
+	});
+
+
+	document.querySelectorAll(".card-link").forEach(link => {
+		const url = link.getAttribute("href");
+
+		// Check if the link is a YouTube URL
+		if (/youtu(?:\.be|be\.com)/.test(url)) {
+			const match = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
+			if (match) {
+				const videoId = match[1];
+				const img = link.querySelector("img");
+				if (img) {
+					// use maxresdefault.jpg if you want HD
+					img.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+					img.alt = "YouTube thumbnail";
+				}
+			}
+		}
+	});
+
+
+
+	lightGallery(document.querySelector(".videos"), {
+		selector: 'a',
+		animateThumb: true,
+		plugins: [lgVideo],
+		zoomFromOrigin: false,
+		allowMediaOverlap: true,
+		toggleThumb: true,
+	});
+
+
+	const newsGallery = document.querySelector(".news-details");
+
+	lightGallery(newsGallery, {
+		selector: 'a',              // all <a> inside .news-details
+		plugins: [lgZoom, lgThumbnail], // optional plugins
+		speed: 500,
+		download: false,
+		getCaptionFromTitleOrAlt: false // we are using data-sub-html
+	});
+
+
 }
 

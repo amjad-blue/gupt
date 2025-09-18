@@ -5,6 +5,7 @@
   --header-height:104px;
   --primary-color: #006838;
   --bg-body:#FAFAFA;
+  --accent-color: hsl(152 100% 30% / 1);
 
   --extra-light-gray: hsl(0 0% 93% / 1);
   --gray-light: #949494;
@@ -128,31 +129,31 @@ button {transition: .4s}
 .header .nav-item.nav-item-has-dropdown:hover .dropdown-menu { transform: scaleY(1); opacity: 1; pointer-events: all; }
 .header .dropdown-menu > li:not(:last-child) a:after { background: linear-gradient(90deg, #ffffff00, #cdcdcd, #ffffff00 100%, white); position: absolute; left: 4px; right: 4px; bottom: 0; height: 1px; z-index: 3; }
 .header .search { transition: .4s; width: 34px; aspect-ratio: 1; border-radius: 50%; background-color: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; }
-.header .search:hover, .header .switch-language:hover { background-color: hsl(152 100% 30% / 1); }
+.header .search:hover, .header .switch-language:hover { background-color: var(--accent-color); }
 .header .switch-language { font-size: 1.3rem;transition: .4s; border-radius: var(--radius-4); color: white; background-color: var(--primary-color); font-weight: 500; width: 34px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-family: sans-serif; line-height: 1; }
 .header .switch-language .icon-world2 { font-size: 1.6rem; }
 
 .social-links {display: flex;align-items: center;gap: var(--spacer-1);margin-inline-end: 12px;}
 .social-links__item a {--size: 34px;transition: .4s;display: flex;align-items: center;justify-content: center;width: var(--size);aspect-ratio: 1;border: 2px solid var(--primary-color);border-radius: 50%;}
 .social-links__item a span {font-size: 1.4rem;transition: .4s}
-.social-links__item a:hover {border-color: hsl(152 100% 30% / 1); }
+.social-links__item a:hover {border-color: var(--accent-color); }
 
-.news-section {padding-block: 0;background-color: #eeeeee;}
-.news-section .ticker-wrapper { overflow: hidden; direction: ltr; white-space: nowrap; user-select: none; }
-.news-section .ticker-wrapper .js-marquee-wrapper { display: flex; align-items: center; overflow: hidden; }
-.news-section .ticker-wrapper .js-marquee { display: flex; align-items: center; gap: var(--gap); transform: translateX(20%); }
-.news-section .ticker-wrapper .js-marquee-wrapper { display: flex; align-items: center; }
-.news-section .ticker { --gap: 24px; display: inline-flex; white-space: nowrap; will-change: transform; animation: scroll-left linear infinite; animation-duration: 3s; animation-play-state: running; gap: var(--gap); padding: 1rem 0; animation: unset; }
-.news-section .ticker .ticker-item { display: flex; align-items: center; }
-.news-section .ticker .ticker-item:after { content: ""; width: 30px; aspect-ratio: 1; background-image: url(../assets/images/logo.svg); background-repeat: no-repeat; background-size: 101%; border-radius: 50%; margin-inline-start: var(--gap); background-position: center; }
-.news-section .ticker-wrapper:hover .ticker, .ticker-wrapper:focus-within .ticker { animation-play-state: paused; }
-.news-section .ticker-container { position: relative; display: flex; background: #EEEEEE; }
-.news-section .ticker-info { --gap: 10px; display: flex; align-items: center; gap: var(--gap); flex-shrink: 0; background-color: white; position: relative; z-index: 1; }
-.news-section .ticker-info__title { padding: 0 10px; color: var(--primary-color); font-weight: 600; position: relative; }
-.news-section .ticker-info:after { --size: 30px; content: ""; position: absolute; left: calc(var(--size) * -1); top: 0; bottom: 0; width: var(--size); background: linear-gradient(267deg, #eeeeee 50%, #eeeeee00); }
-.news-section .ticker-info__tag { background: #C23333; padding: 5px 10px; display: flex; align-items: center; justify-content: center; border-radius: 20px; min-width: 80px; font-weight: 700; }
-.news-section .ticker-info__img {}
-.news-section .ticker-info__img svg * { fill: white; }
+.homepage .news-section {padding-block: 0;background-color: #eeeeee;}
+.homepage .news-section .ticker-wrapper { overflow: hidden; direction: ltr; white-space: nowrap; user-select: none; }
+.homepage .news-section .ticker-wrapper .js-marquee-wrapper { display: flex; align-items: center; overflow: hidden; }
+.homepage .news-section .ticker-wrapper .js-marquee { display: flex; align-items: center; gap: var(--gap); transform: translateX(20%); }
+.homepage .news-section .ticker-wrapper .js-marquee-wrapper { display: flex; align-items: center; }
+.homepage .news-section .ticker { --gap: 24px; display: inline-flex; white-space: nowrap; will-change: transform; animation: scroll-left linear infinite; animation-duration: 3s; animation-play-state: running; gap: var(--gap); padding: 1rem 0; animation: unset; }
+.homepage .news-section .ticker .ticker-item { display: flex; align-items: center; }
+.homepage .news-section .ticker .ticker-item:after { content: ""; width: 30px; aspect-ratio: 1; background-image: url(../assets/images/logo.svg); background-repeat: no-repeat; background-size: 101%; border-radius: 50%; margin-inline-start: var(--gap); background-position: center; }
+.homepage .news-section .ticker-wrapper:hover .ticker, .ticker-wrapper:focus-within .ticker { animation-play-state: paused; }
+.homepage .news-section .ticker-container { position: relative; display: flex; background: #EEEEEE; }
+.homepage .news-section .ticker-info { --gap: 10px; display: flex; align-items: center; gap: var(--gap); flex-shrink: 0; background-color: white; position: relative; z-index: 1; }
+.homepage .news-section .ticker-info__title { padding: 0 10px; color: var(--primary-color); font-weight: 600; position: relative; }
+.homepage .news-section .ticker-info:after { --size: 30px; content: ""; position: absolute; left: calc(var(--size) * -1); top: 0; bottom: 0; width: var(--size); background: linear-gradient(267deg, #eeeeee 50%, #eeeeee00); }
+.homepage .news-section .ticker-info__tag { background: #C23333; padding: 5px 10px; display: flex; align-items: center; justify-content: center; border-radius: 20px; min-width: 80px; font-weight: 700; }
+.homepage .news-section .ticker-info__img {}
+.homepage .news-section .ticker-info__img svg * { fill: white; }
 
 
 
