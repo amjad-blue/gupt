@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?bvetwj');
-  src:  url('fonts/icomoon.eot?bvetwj#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?bvetwj') format('truetype'),
-    url('fonts/icomoon.woff?bvetwj') format('woff'),
-    url('fonts/icomoon.svg?bvetwj#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?99camh');
+  src:  url('fonts/icomoon.eot?99camh#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?99camh') format('truetype'),
+    url('fonts/icomoon.woff?99camh') format('woff'),
+    url('fonts/icomoon.svg?99camh#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-duration:before {
+  content: "\e906";
+}
+.icon-discount:before {
+  content: "\e90e";
+}
 .icon-pause:before {
   content: "\e998";
 }
@@ -100,14 +106,8 @@
 .icon-money:before {
   content: "\e956";
 }
-.icon-save-money:before {
-  content: "\e95f";
-}
 .icon-info:before {
   content: "\e97c";
-}
-.icon-card:before {
-  content: "\e97d";
 }
 .icon-gear:before {
   content: "\e97e";
@@ -115,42 +115,8 @@
 .icon-message:before {
   content: "\e97f";
 }
-.icon-target:before {
-  content: "\e980";
-}
 .icon-printing:before {
   content: "\e981";
-}
-.icon-Polygon:before {
-  content: "\e952";
-  color: #fff;
-}
-.icon-location:before {
-  content: "\e95e";
-}
-.icon-insurance:before {
-  content: "\e953";
-}
-.icon-balance:before {
-  content: "\e954";
-}
-.icon-donation:before {
-  content: "\e957";
-}
-.icon-cpu:before {
-  content: "\e958";
-}
-.icon-fire-flame:before {
-  content: "\e959";
-}
-.icon-police-station1:before {
-  content: "\e95a";
-}
-.icon-hand-holding-leaves:before {
-  content: "\e95b";
-}
-.icon-steering-wheel:before {
-  content: "\e95c";
 }
 .icon-book:before {
   content: "\e951";
@@ -160,9 +126,6 @@
 }
 .icon-home1:before {
   content: "\e94e";
-}
-.icon-hat:before {
-  content: "\e94f";
 }
 .icon-internet:before {
   content: "\e94d";
@@ -314,18 +277,6 @@
 .icon-master:before {
   content: "\e94a";
 }
-.icon-smartphone:before {
-  content: "\e949";
-}
-.icon-fax-1:before {
-  content: "\e944";
-}
-.icon-fax:before {
-  content: "\e945";
-}
-.icon-mobile-1:before {
-  content: "\e946";
-}
 .icon-mobile:before {
   content: "\e947";
 }
@@ -377,9 +328,6 @@
 .icon-key:before {
   content: "\e935";
 }
-.icon-close-circle:before {
-  content: "\e936";
-}
 .icon-location21:before {
   content: "\e937";
 }
@@ -394,12 +342,6 @@
 }
 .icon-upload:before {
   content: "\e93b";
-}
-.icon-phone-with-hand:before {
-  content: "\e93d";
-}
-.icon-phone-nots:before {
-  content: "\e93e";
 }
 .icon-heart:before {
   content: "\e927";
@@ -443,9 +385,6 @@
 .icon-facebook:before {
   content: "\e903";
 }
-.icon-flickr:before {
-  content: "\e906";
-}
 .icon-github:before {
   content: "\e907";
 }
@@ -457,15 +396,6 @@
 }
 .icon-medium:before {
   content: "\e90d";
-}
-.icon-myspace:before {
-  content: "\e90e";
-}
-.icon-pinterest:before {
-  content: "\e910";
-}
-.icon-quora:before {
-  content: "\e911";
 }
 .icon-reddit:before {
   content: "\e912";

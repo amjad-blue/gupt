@@ -2,8 +2,37 @@ document.addEventListener('DOMContentLoaded', init)
 
 function init() {
 	handleHomePage()
+	handleAboutPage()
+	handleActiveLink()
 }
 
+function handleActiveLink() {
+// get current URL path
+	const currentPath = window.location.pathname.split("/").pop();
+
+// loop all nav links
+	document.querySelectorAll(".header .nav-item > a").forEach(parentLink => {
+		const dropdown = parentLink.nextElementSibling;
+
+		// check if parent link itself matches
+		if (parentLink.getAttribute("href") && parentLink.getAttribute("href").includes(currentPath)) {
+			parentLink.classList.add("active");
+		}
+
+		// check dropdown children
+		if (dropdown && dropdown.matches(".dropdown-menu")) {
+			const childLinks = dropdown.querySelectorAll("a");
+			childLinks.forEach(child => {
+				if (child.getAttribute("href") && child.getAttribute("href").includes(currentPath)) {
+					child.classList.add("active");     // highlight child
+					parentLink.classList.add("active"); // highlight parent
+				}
+			});
+		}
+	});
+
+
+}
 
 function handleHeroSlider(){
 	const slidesInfo = document.querySelectorAll(".sliders-info .slide");
@@ -448,15 +477,18 @@ function handleHomePage() {
 	}
 
 	const gallery = document.querySelector(".section-gallery.photos");
+	if (gallery) {
+		lightGallery(gallery, {
+			selector: 'a',
+			animateThumb: true,
+			plugins: [lgVideo],
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+			toggleThumb: true,
+		});
+	}
 
-	lightGallery(gallery, {
-		selector: 'a',
-		animateThumb: true,
-		plugins: [lgVideo],
-		zoomFromOrigin: false,
-		allowMediaOverlap: true,
-		toggleThumb: true,
-	});
+
 
 
 	document.querySelectorAll(".card-link").forEach(link => {
@@ -479,26 +511,65 @@ function handleHomePage() {
 
 
 
-	lightGallery(document.querySelector(".videos"), {
-		selector: 'a',
-		animateThumb: true,
-		plugins: [lgVideo],
-		zoomFromOrigin: false,
-		allowMediaOverlap: true,
-		toggleThumb: true,
-	});
+	if (document.querySelector(".videos")) {
+		lightGallery(document.querySelector(".videos"), {
+			selector: 'a',
+			animateThumb: true,
+			plugins: [lgVideo],
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+			toggleThumb: true,
+		});
+	}
+
+
+
+	if (document.querySelector(".agreements-details")) {
+		lightGallery(document.querySelector(".agreements-details .img-wrapper"), {
+			selector: 'a',
+			animateThumb: true,
+			zoomFromOrigin: false,
+			allowMediaOverlap: true,
+			toggleThumb: true,
+		});
+	}
 
 
 	const newsGallery = document.querySelector(".news-details");
 
-	lightGallery(newsGallery, {
-		selector: 'a',              // all <a> inside .news-details
-		plugins: [lgZoom, lgThumbnail], // optional plugins
-		speed: 500,
-		download: false,
-		getCaptionFromTitleOrAlt: false // we are using data-sub-html
-	});
+	if (newsGallery) {
+		lightGallery(newsGallery, {
+			selector: 'a',
+			plugins: [lgZoom, lgThumbnail],
+			speed: 500,
+			download: false,
+			getCaptionFromTitleOrAlt: false
+		});
+	}
+
+
+
+
+
+
 
 
 }
 
+
+function handleAboutPage() {
+	if (document.querySelector('.section-achievements .item-achievement')) {
+		gsap.to(".section-achievements .item-achievement", {
+			opacity: 1,
+			duration: 2,
+			stagger: 0.2,
+			ease: "power2.out",
+			scrollTrigger: {
+				trigger: ".section-achievements",
+				start: "top 80%",
+				toggleActions: "play none none none",
+			}
+		});
+	}
+
+}

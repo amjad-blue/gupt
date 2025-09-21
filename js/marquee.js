@@ -15,11 +15,14 @@ import marquee from 'https://cdn.jsdelivr.net/npm/vanilla-marquee/dist/vanilla-m
 
 document.addEventListener('DOMContentLoaded', () => {
 	const el = document.querySelector('.ticker-container .ticker');
-	const instance = new marquee(el, {
-		pauseOnHover: true,
-		gap:80,
-		speed: 20,
-		duplicated: true,
-		direction: 'rtl',
-	});
+	if (el) {
+		const instance = new marquee(el, {
+			pauseOnHover: true,
+			gap:80,
+			speed: 20,
+			duplicated: true,
+			direction: 'rtl',
+		});
+	}
+
 });
