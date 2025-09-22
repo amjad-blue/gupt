@@ -343,7 +343,7 @@ function handleHomePageAnimations() {
 	tl
 		.to(".section-app__side", { opacity: 1, duration: 1, ease: "sine.out" })
 		.to(".circle", { opacity: 1, duration: 0.6, ease: "sine.out" },"-=0.4")
-		.to(".phone", { y: "0%", opacity: 1, duration: 1, ease: "back.out(1.3)" },)
+		.to(".phone", { y: "1%", opacity: 1, duration: 1, ease: "back.out(1.3)" },)
 		.to(".logo", { opacity: 1, duration: 0.7, ease: "sine.out" }, "-=0.1")
 		.to(".login", { opacity: 1, duration: 0.7, ease: "sine.out" }, "-=0.1")
 
