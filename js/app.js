@@ -10,6 +10,8 @@ function handleActiveLink() {
 // get current URL path
 	const currentPath = window.location.pathname.split("/").pop();
 
+	if (!currentPath) return;
+
 // loop all nav links
 	document.querySelectorAll(".header .nav-item > a").forEach(parentLink => {
 		const dropdown = parentLink.nextElementSibling;
