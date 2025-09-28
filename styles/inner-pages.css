@@ -290,7 +290,7 @@
 
 .section-achievements .item-achievement__date {
   position: absolute;
-  --offset: -160px;
+  --offset: -110px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -388,7 +388,7 @@
 .section-achievements .item-achievement:after {
   content: "";
   position: absolute;
-  right: -89px;
+  right: -49px;
   transition: transform 1s;
   top: 50%;
   transform: translateY(-50%);
@@ -407,7 +407,7 @@
 
 .section-achievements .item-achievement:nth-child(even):after {
   right: unset;
-  left: -89px;
+  left: -49px;
   background-color: #5EB8D4;
   outline-color: #5EB8D4;
 }
