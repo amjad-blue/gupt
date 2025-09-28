@@ -79,7 +79,7 @@ main {position: relative;z-index: 1;min-height: 80vh;}
 .card-desc {font-size: var(--font-size-body-md);color: var(--gray-light);line-height: 1.5}
 /*common styles*/
 .app-wrapper {width: var(--app-inner-size);max-width: 100%;margin: 0 auto;}
-.page-header {position: relative;display: flex;flex-direction: column;justify-content: center;align-items: center;border-bottom: 1px solid hsl(0 0% 93% / 1);}
+.page-header {position: relative;display: flex;flex-direction: column;justify-content: center;align-items: center;box-shadow: 0 0 5px rgb(116 116 116 / 30%);}
 .page-header:before {content: "";position: absolute;inset: 0;background-image: url("../assets/images/page-header.svg");background-repeat: no-repeat;background-position: center;background-size: cover;}
 .page-header .app-wrapper {z-index: 1;position: relative;}
 .page-header__title {font-size: var(--font-size-title-md);margin-bottom: var(--spacer-3);line-height: 1}
@@ -118,13 +118,13 @@ button {transition: .4s}
 .header .header-action { width: 32px; aspect-ratio: 1; transition: border-color .4s; display: flex; align-items: center; justify-content: center; color: black; border: 1px solid var(--gray-light); border-radius: 50%; line-height: 1; }
 .header .nav-list { display: flex; align-items: center; gap: var(--spacer-3); }
 .header .nav-item > a { font-weight: 600; transition: .4s; display: flex; align-items: center; gap: 6px; padding: 10px; font-size: clamp(1.6rem, 4vw, 1.8rem); }
-.header .nav-item > a:hover { color: var(--accent-color); }
+.header .nav-item > a:hover { color: var(--primary-color); }
 .header .nav-list > *:first-child > a { padding-inline-start: 0; }
 .header .nav-item.nav-item-has-dropdown > a:after { content: ""; border: solid currentColor; border-width: 0 2px 2px 0; display: inline-block; padding: 3px; transform: rotate(45deg); }
 .header .header-action:hover { border-color: var(--primary-color); }
 .header .nav-item.nav-item-has-dropdown { position: relative; }
 .header .dropdown-menu { padding: 6px;display: flex; flex-direction: column; gap: 6px; position: absolute; right: -6px; text-align: center; color: white; min-width: 190px; overflow: hidden; transform: scaleY(0); transform-origin: top; opacity: 0; pointer-events: none; transition: 0.4s cubic-bezier(0.65, 0.1, 0.27, 1.08); }
-.header .dropdown-menu > li > a { transition: background-color .4s; width: 100%; padding: 8px; position: relative; background: white; color: black; box-shadow: 0 0 6px #bdbdbd; }
+.header .dropdown-menu > li > a { transition: background-color .4s; width: 100%; padding: 8px; position: relative; background: white; color: black; box-shadow: 0 0 6px #bdbdbd;border-radius: var(--radius-1); }
 .header .dropdown-menu > li > a:hover { background-color: var(--primary-color); color: white; }
 .header .nav-item.nav-item-has-dropdown:hover .dropdown-menu { transform: scaleY(1); opacity: 1; pointer-events: all; }
 .header .dropdown-menu > li:not(:last-child) a:after { background: linear-gradient(90deg, #ffffff00, #cdcdcd, #ffffff00 100%, white); position: absolute; left: 4px; right: 4px; bottom: 0; height: 1px; z-index: 3; }
@@ -132,9 +132,8 @@ button {transition: .4s}
 .header .search:hover, .header .switch-language:hover { background-color: var(--accent-color); }
 .header .switch-language { font-size: 1.3rem;transition: .4s; border-radius: var(--radius-4); color: white; background-color: var(--primary-color); font-weight: 500; width: 34px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-family: sans-serif; line-height: 1; }
 .header .switch-language .icon-world2 { font-size: 1.6rem; }
-a.nav-link.active, a.nav-link + *:has(.active), .header .dropdown-menu > li > a.active {
-  color: var(--accent-color);
-}
+.header .dropdown-menu > li > a.active:hover {background-color: var(--primary-color);color: white;}
+a.nav-link.active, a.nav-link + *:has(.active), .header .dropdown-menu > li > a.active {color: var(--primary-color);}
 
 .social-links {display: flex;align-items: center;gap: var(--spacer-1);margin-inline-end: 12px;}
 .social-links__item a {--size: 34px;transition: .4s;display: flex;align-items: center;justify-content: center;width: var(--size);aspect-ratio: 1;border: 2px solid var(--primary-color);border-radius: 50%;}
